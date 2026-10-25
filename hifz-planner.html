@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Hifz Timetable Planner | Hifz In Progress</title>
+    <meta name="description" content="Generate a personalized, sustainable daily Quran memorization timetable. Calculate completion timelines, align Sabaq, Sabqi, and Manzil routines, and export high-resolution printable PNG schedules." />
+    <meta property="og:title" content="My Hifz Timetable Planner | Hifz In Progress" />
+    <meta property="og:description" content="Design your daily Hifz schedule tailored to your routine and pace with instant high-resolution timetable downloads." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8A052' stroke-width='2'%3E%3Cpath d='M12 3v18M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- ====================================================================
+         GLOBAL HEADER
+         ==================================================================== -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-link" aria-label="Hifz In Progress Home">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3v18" />
+              <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+            </svg>
+          </div>
+          <span class="brand-title">Hifz In Progress</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="journey.html" class="nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="nav-link">Hifz Guide</a>
+          <a href="hifz-planner.html" class="nav-link active">Hifz Planner</a>
+          <a href="tracker.html" class="nav-link">Daily Tracker</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="search-toggle-btn" class="search-btn" aria-label="Search" title="Search">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+          <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">Follow Journey</a>
+          <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <div class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="journey.html" class="mobile-nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="mobile-nav-link">Hifz Guide</a>
+          <a href="hifz-planner.html" class="mobile-nav-link active">Hifz Planner</a>
+          <a href="tracker.html" class="mobile-nav-link">Daily Tracker</a>
+          <a href="resources.html" class="mobile-nav-link">Resources</a>
+          <a href="about.html" class="mobile-nav-link">About</a>
+        </div>
+        <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; text-align: center;">Follow on Instagram</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- PLANNER HERO -->
+      <section class="section section-bg-emerald" style="padding: 3.5rem 0 3rem;">
+        <div class="container">
+          <div class="kicker">Personalized Routine &amp; Schedule</div>
+          <h1 style="font-size: 2.75rem; margin-bottom: 0.75rem;">My Hifz Timetable Planner</h1>
+          <p style="font-size: 1.05rem; color: rgba(243, 235, 221, 0.85); font-weight: 300; max-width: 720px; line-height: 1.6;">
+            A sustainable Hifz schedule is built around Salah and consistent daily blocks. Configure your current memorization level, 
+            daily availability, and revision parameters to generate an editable timetable with estimated completion dates and an instant downloadable graphic.
+          </p>
+        </div>
+      </section>
+
+      <!-- PLANNER INTERACTIVE TOOL -->
+      <section class="section section-bg-dark">
+        <div class="container">
+          
+          <div class="planner-layout">
+            
+            <!-- LEFT COLUMN: CONFIGURATION CONTROLS -->
+            <div class="planner-sidebar">
+              <div class="tracker-form-card" style="position: sticky; top: 96px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                  <h3 style="font-size: 1.25rem; color: var(--gold);">1. Your Parameters</h3>
+                  <button type="button" id="planner-reset-btn" class="btn btn-ghost btn-sm" style="font-size: 0.7rem; padding: 0.35rem 0.75rem;">
+                    Reset Defaults
+                  </button>
+                </div>
+
+                <form id="planner-form">
+                  <!-- Section: Progress & Baseline -->
+                  <div class="planner-group-box">
+                    <span class="planner-group-title">Current Memorization State</span>
+
+                    <div class="form-group" style="margin-bottom: 0.85rem;">
+                      <label class="form-label" for="plan-completed-paras">
+                        Completed Paras (0 - 30): <strong id="plan-paras-display" class="text-gold">2 Paras</strong>
+                      </label>
+                      <input type="range" id="plan-completed-paras" class="form-input" min="0" max="30" step="0.5" value="2" style="accent-color: var(--gold); padding: 0; height: 8px;" />
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-current-juz">Current Juz</label>
+                        <select id="plan-current-juz" class="form-select"></select>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="plan-current-surah">Current Surah</label>
+                        <select id="plan-current-surah" class="form-select"></select>
+                      </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-current-ayah">Starting Ayah</label>
+                        <select id="plan-current-ayah" class="form-select"></select>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="plan-mushaf-type">Mushaf Format</label>
+                        <select id="plan-mushaf-type" class="form-select">
+                          <option value="15" selected>15 Lines (Madinah)</option>
+                          <option value="16">16 Lines (South Asian)</option>
+                          <option value="13">13 Lines</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Section: Daily Pace & Target -->
+                  <div class="planner-group-box">
+                    <span class="planner-group-title">Daily Pace Target</span>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-daily-lines">Lines per Day</label>
+                        <select id="plan-daily-lines" class="form-select">
+                          <option value="5">5 lines (~1/3 page)</option>
+                          <option value="8">8 lines (~half page)</option>
+                          <option value="10">10 lines (~2/3 page)</option>
+                          <option value="15" selected>15 lines (1 full page)</option>
+                          <option value="20">20 lines (1.3 pages)</option>
+                          <option value="30">30 lines (2 full pages)</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="plan-rest-day">Weekly Rest Day</label>
+                        <select id="plan-rest-day" class="form-select">
+                          <option value="Friday" selected>Friday (Revision only)</option>
+                          <option value="Sunday">Sunday (Revision only)</option>
+                          <option value="Thursday">Thursday (Revision only)</option>
+                          <option value="None">No Rest Day (7 Days)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Active Hifz Days</label>
+                      <div class="weekdays-selector">
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Mon" checked /><span>M</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Tue" checked /><span>T</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Wed" checked /><span>W</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Thu" checked /><span>T</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Fri" checked /><span>F</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Sat" checked /><span>S</span></label>
+                        <label class="day-checkbox"><input type="checkbox" name="active_days" value="Sun" checked /><span>S</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Section: Daily Routine Time Slots -->
+                  <div class="planner-group-box">
+                    <span class="planner-group-title">Daily Salah-Aligned Slots</span>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-time-fajr">Fajr Sabaq Time</label>
+                        <input type="time" id="plan-time-fajr" class="form-input" value="05:30" />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="plan-dur-fajr">Fajr Duration</label>
+                        <select id="plan-dur-fajr" class="form-select">
+                          <option value="30">30 mins</option>
+                          <option value="45" selected>45 mins</option>
+                          <option value="60">60 mins</option>
+                          <option value="90">90 mins</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-time-asr">Asr Sabqi Time</label>
+                        <input type="time" id="plan-time-asr" class="form-input" value="16:30" />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="plan-dur-asr">Sabqi Duration</label>
+                        <select id="plan-dur-asr" class="form-select">
+                          <option value="20">20 mins</option>
+                          <option value="30" selected>30 mins</option>
+                          <option value="45">45 mins</option>
+                          <option value="60">60 mins</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-time-maghrib">Sheikh Recitation</label>
+                        <input type="time" id="plan-time-maghrib" class="form-input" value="18:45" />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="plan-dur-maghrib">Sheikh Duration</label>
+                        <select id="plan-dur-maghrib" class="form-select">
+                          <option value="15">15 mins</option>
+                          <option value="20" selected>20 mins</option>
+                          <option value="30">30 mins</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="plan-time-isha">Isha Manzil Time</label>
+                        <input type="time" id="plan-time-isha" class="form-input" value="20:30" />
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="plan-dur-isha">Manzil Duration</label>
+                        <select id="plan-dur-isha" class="form-select">
+                          <option value="25">25 mins</option>
+                          <option value="35">35 mins</option>
+                          <option value="45" selected>45 mins</option>
+                          <option value="60">60 mins</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" id="btn-recalculate-plan" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem;">
+                    Update Live Timetable
+                  </button>
+                </form>
+
+                <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--gold-subtle); font-size: 0.72rem; color: var(--sage); display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Inputs are automatically saved locally on your device.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: DYNAMIC TIMETABLE DISPLAY & CANVAS DOWNLOAD -->
+            <div class="planner-main">
+              
+              <!-- Completion Projection Snapshot -->
+              <div class="progress-card" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                  <div>
+                    <span class="badge" style="margin-bottom: 0.35rem;">Calculated Roadmap</span>
+                    <h3 style="font-size: 1.75rem; margin-top: 0.2rem;">Your Projected Completion</h3>
+                    <p style="font-size: 0.85rem; color: var(--sage);">Based on <span id="summary-pace-text">1 page (15 lines)</span> daily with <span id="summary-rest-text">Friday consolidation</span>.</p>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage); font-weight: 700;">Est. Completion</div>
+                    <div id="stat-est-date" style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: var(--gold);">
+                      Calculating...
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-track" style="margin-bottom: 0.75rem;">
+                  <div id="plan-progress-bar" class="progress-bar" style="width: 6.6%;"></div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--sage); margin-bottom: 1.5rem;">
+                  <span id="plan-paras-status">2 / 30 Paras Memorized (6.7%)</span>
+                  <span id="stat-days-left">~610 Active Days Remaining</span>
+                </div>
+
+                <!-- 4 Key Stat Metrics -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; text-align: center;">
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.85rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--gold-subtle);">
+                    <div id="stat-daily-study-time" style="font-weight: 700; font-size: 1.25rem; color: var(--ivory);">2h 20m</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage); margin-top: 0.25rem;">Daily Total</div>
+                  </div>
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.85rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--gold-subtle);">
+                    <div id="stat-monthly-pages" style="font-weight: 700; font-size: 1.25rem; color: var(--ivory);">26 Pages</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage); margin-top: 0.25rem;">Monthly Pace</div>
+                  </div>
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.85rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--gold-subtle);">
+                    <div id="stat-manzil-cycle" style="font-weight: 700; font-size: 1.25rem; color: var(--ivory);">7 Days</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage); margin-top: 0.25rem;">Manzil Cycle</div>
+                  </div>
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.85rem 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--gold-subtle);">
+                    <div id="stat-active-days-count" style="font-weight: 700; font-size: 1.25rem; color: var(--gold);">6 Days</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage); margin-top: 0.25rem;">Sabaq / Week</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Bar: Export Options -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; background-color: var(--bg-card); border: 1px solid var(--gold-subtle); border-radius: var(--radius-lg); padding: 1.25rem 1.75rem;">
+                <div>
+                  <h4 style="font-size: 1.15rem; color: var(--ivory); margin-bottom: 0.25rem;">Download Your Personalized Timetable</h4>
+                  <p style="font-size: 0.82rem; color: var(--sage);">Generate a high-definition PNG card to set as your phone lockscreen or print on paper.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                  <button id="btn-preview-timetable" class="btn btn-ghost btn-sm">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Preview Card</span>
+                  </button>
+                  <button id="btn-download-timetable-png" class="btn btn-gold btn-sm">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    <span>Download PNG</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Editable Timetable Block Cards -->
+              <div style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+                  <h3 style="font-size: 1.35rem;">Daily Structured Schedule (Editable)</h3>
+                  <span style="font-size: 0.75rem; color: var(--gold); font-style: italic;">Click text to customize any block live</span>
+                </div>
+
+                <div class="timetable-blocks-grid">
+                  
+                  <!-- Slot 1: Fajr Sabaq -->
+                  <div class="timetable-card">
+                    <div class="timetable-card-header">
+                      <div class="timetable-time-pill" id="card-fajr-time">05:30 AM</div>
+                      <span class="badge">Sabaq (New)</span>
+                    </div>
+                    <h4 class="timetable-slot-title" contenteditable="true" id="card-fajr-title">Fajr Sabaq Block</h4>
+                    <p class="timetable-slot-desc" contenteditable="true" id="card-fajr-desc">
+                      Intention renewal, listen to Sheikh Al-Husary 3x, and memorize today&apos;s new lines before work/school.
+                    </p>
+                    <div class="timetable-meta-row">
+                      <span id="card-fajr-dur">45 Minutes</span>
+                      <span class="text-gold">Peak Focus Window</span>
+                    </div>
+                  </div>
+
+                  <!-- Slot 2: Asr Sabqi -->
+                  <div class="timetable-card">
+                    <div class="timetable-card-header">
+                      <div class="timetable-time-pill" id="card-asr-time">04:30 PM</div>
+                      <span class="badge badge-sage">Sabqi (Recent)</span>
+                    </div>
+                    <h4 class="timetable-slot-title" contenteditable="true" id="card-asr-title">Asr Sabqi Revision</h4>
+                    <p class="timetable-slot-desc" contenteditable="true" id="card-asr-desc">
+                      Recite the last 1–2 completed Juz to lock fresh verses into long-term memory. Zero pauses allowed.
+                    </p>
+                    <div class="timetable-meta-row">
+                      <span id="card-asr-dur">30 Minutes</span>
+                      <span>Critical for Retention</span>
+                    </div>
+                  </div>
+
+                  <!-- Slot 3: Maghrib Sheikh -->
+                  <div class="timetable-card">
+                    <div class="timetable-card-header">
+                      <div class="timetable-time-pill" id="card-maghrib-time">06:45 PM</div>
+                      <span class="badge">Recitation Check</span>
+                    </div>
+                    <h4 class="timetable-slot-title" contenteditable="true" id="card-maghrib-title">Teacher Audit &amp; Makharij</h4>
+                    <p class="timetable-slot-desc" contenteditable="true" id="card-maghrib-desc">
+                      Recite today&apos;s Sabaq and tricky passages to your Sheikh or qualified partner. Correct any hidden slips immediately.
+                    </p>
+                    <div class="timetable-meta-row">
+                      <span id="card-maghrib-dur">20 Minutes</span>
+                      <span class="text-gold">Qualified Sanad</span>
+                    </div>
+                  </div>
+
+                  <!-- Slot 4: Isha Manzil -->
+                  <div class="timetable-card">
+                    <div class="timetable-card-header">
+                      <div class="timetable-time-pill" id="card-isha-time">08:30 PM</div>
+                      <span class="badge">Manzil (Cumulative)</span>
+                    </div>
+                    <h4 class="timetable-slot-title" contenteditable="true" id="card-isha-title">Isha Manzil &amp; Tomorrow&apos;s Preview</h4>
+                    <p class="timetable-slot-desc" contenteditable="true" id="card-isha-desc">
+                      Recite your weekly cumulative Manzil portion (from memory) and preview tomorrow&apos;s new Sabaq 5 times before sleep.
+                    </p>
+                    <div class="timetable-meta-row">
+                      <span id="card-isha-dur">45 Minutes</span>
+                      <span>Evening Deep Review</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Weekly Matrix Table -->
+              <div style="background-color: var(--bg-card); border: 1px solid var(--gold-subtle); border-radius: var(--radius-xl); padding: 1.75rem; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.35rem;">7-Day Weekly Structure</h3>
+                <p style="font-size: 0.82rem; color: var(--sage); margin-bottom: 1.25rem;">
+                  How your week balances new memorization with ironclad consolidation.
+                </p>
+
+                <div style="overflow-x: auto;">
+                  <table class="records-table" style="min-width: 580px;">
+                    <thead>
+                      <tr>
+                        <th>Day</th>
+                        <th>Morning (Sabaq)</th>
+                        <th>Afternoon (Sabqi)</th>
+                        <th>Evening (Manzil)</th>
+                        <th>Focus Level</th>
+                      </tr>
+                    </thead>
+                    <tbody id="planner-week-tbody">
+                      <!-- Rendered dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Teacher Guidance Card -->
+              <div class="card" style="border-left: 4px solid var(--gold); padding: 1.75rem;">
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-dark); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--ivory); margin-bottom: 0.35rem;">Golden Rules for This Timetable</h4>
+                    <p style="font-size: 0.88rem; color: var(--sage); line-height: 1.6; margin-bottom: 0.75rem;">
+                      1. <strong>Consistency Beats Quantity:</strong> Memorizing 5 lines every single day without failing is exponentially superior to memorizing 2 pages sporadically.
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--sage); line-height: 1.6; margin-bottom: 0.75rem;">
+                      2. <strong>One Single Mus&apos;haf:</strong> Never switch to a different print or font size. Visual photographic memory locks the position of verses on the physical page.
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--sage); line-height: 1.6;">
+                      3. <strong>Sabaq Can Wait, Revision Cannot:</strong> If you are tired or short on time, reduce or pause your new Sabaq, but never skip Sabqi or Manzil.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- HIDDEN CANVAS FOR HIGH-RES TIMETABLE IMAGE GENERATION -->
+    <canvas id="timetable-canvas" width="1080" height="1920" style="display: none;"></canvas>
+
+    <!-- IMAGE PREVIEW MODAL -->
+    <div id="image-preview-modal" class="modal-backdrop">
+      <div class="modal-content" style="max-width: 600px; text-align: center;">
+        <button id="modal-preview-close" class="modal-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--ivory);">Your Hifz Timetable Card</h3>
+        <p style="font-size: 0.82rem; color: var(--sage); margin-bottom: 1.25rem;">
+          High-resolution 1080 &times; 1920 PNG preview. Perfect for smartphone wallpapers, tablets, or A4 printing.
+        </p>
+
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gold); box-shadow: var(--shadow-lg); max-height: 60vh; overflow-y: auto; background-color: var(--bg-dark);">
+          <img id="modal-preview-img" src="" alt="Hifz Timetable Preview" style="width: 100%; display: block; height: auto;" />
+        </div>
+
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+          <button id="modal-download-btn" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Download PNG</span>
+          </button>
+          <button id="modal-close-action" class="btn btn-ghost">Close Preview</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="brand-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18" />
+                  <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+                </svg>
+              </div>
+              <span class="brand-title">Hifz In Progress</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--sage); max-width: 320px; line-height: 1.6;">
+              Documenting the sacred journey of Qur&apos;an memorization from Day 1 to completion.
+            </p>
+            <div style="margin-top: 0.75rem; color: var(--gold); font-family: var(--font-serif); font-style: italic; font-size: 0.85rem;">
+              &ldquo;One ayah at a time. In sha Allah.&rdquo;
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem;">Navigation</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--sage);">
+              <a href="index.html">Home</a>
+              <a href="journey.html">My Journey</a>
+              <a href="hifz-guide.html">Hifz Guide</a>
+              <a href="hifz-planner.html" style="color: var(--gold);">Hifz Planner</a>
+              <a href="tracker.html">Daily Tracker</a>
+              <a href="resources.html">Resources</a>
+              <a href="about.html">About</a>
+            </div>
+          </div>
+
+          <div class="footer-ayah-card">
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.5rem;">Ayah of Reflection</h4>
+            <div class="font-arabic" style="font-size: 1.35rem; color: var(--ivory); text-align: right; line-height: 1.8;" dir="rtl">
+              وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
+            </div>
+            <p style="font-size: 0.78rem; font-style: italic; color: rgba(243, 235, 221, 0.85); margin-top: 0.5rem;">
+              &ldquo;And We have indeed made the Qur&apos;an easy to remember, so is there any who will remember?&rdquo;
+            </p>
+            <div style="font-size: 0.68rem; color: var(--sage); text-transform: uppercase; margin-top: 0.25rem;">
+              Surah Al-Qamar (54:17)
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Hifz In Progress. All rights reserved.</div>
+          <div><a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Official Instagram: @hifzinprogress</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-content">
+        <button id="search-close-btn" class="modal-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Search Hifz In Progress</h3>
+        <input type="text" id="search-input" class="form-input" placeholder="Search guides, planner, routines..." style="padding: 0.85rem 1rem; margin-bottom: 1.25rem;" />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="quran-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Hifz In Progress",
+  "description": "Official website for Hifz In Progress — documenting the sacred journey of Quran memorization, one ayah at a time. Featuring daily Hifz tracking, interactive timetable planner, comprehensive guides, and memorization resources.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

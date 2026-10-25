@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Hifz Tracker | Hifz In Progress</title>
+    <meta name="description" content="Record daily Sabaq, Sabqi, and Manzil revisions with local storage persistence, mini calendar tracking, and progress metrics." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8A052' stroke-width='2'%3E%3Cpath d='M12 3v18M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-link" aria-label="Hifz In Progress Home">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3v18" />
+              <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+            </svg>
+          </div>
+          <span class="brand-title">Hifz In Progress</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="journey.html" class="nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="nav-link">Hifz Guide</a>
+          <a href="hifz-planner.html" class="nav-link">Hifz Planner</a>
+          <a href="tracker.html" class="nav-link active">Daily Tracker</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="search-toggle-btn" class="search-btn" aria-label="Search" title="Search">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+          <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">Follow Journey</a>
+          <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <div class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="journey.html" class="mobile-nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="mobile-nav-link">Hifz Guide</a>
+          <a href="hifz-planner.html" class="mobile-nav-link">Hifz Planner</a>
+          <a href="tracker.html" class="mobile-nav-link active">Daily Tracker</a>
+          <a href="resources.html" class="mobile-nav-link">Resources</a>
+          <a href="about.html" class="mobile-nav-link">About</a>
+        </div>
+        <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; text-align: center;">Follow on Instagram</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- TRACKER HERO -->
+      <section class="section section-bg-emerald" style="padding-top: 4rem;">
+        <div class="container">
+          <div class="kicker">Track Your Progress</div>
+          <h1 style="font-size: 2.75rem; margin-bottom: 0.75rem;">Daily Hifz Tracker</h1>
+          <p style="font-size: 1.05rem; color: rgba(243, 235, 221, 0.85); font-weight: 300; max-width: 650px; line-height: 1.6;">
+            Keep track of your sabaq, sabqi and manzil with authentic Qur&apos;an dropdowns and retention metrics.
+            All data is saved locally on your device with complete privacy.
+          </p>
+        </div>
+      </section>
+
+      <!-- TRACKER MAIN CONTENT -->
+      <section class="section section-bg-dark">
+        <div class="container">
+          
+          <div class="tracker-wrapper">
+            
+            <!-- Left: Tracker Input Form -->
+            <div class="tracker-form-card">
+              
+              <!-- Tab Mode Buttons -->
+              <div class="type-segmented">
+                <button type="button" class="type-segmented-btn active" data-type="sabaq">Sabaq (New Lesson)</button>
+                <button type="button" class="type-segmented-btn" data-type="sabqi">Sabqi (Recent Rev.)</button>
+                <button type="button" class="type-segmented-btn" data-type="manzil">Manzil (Old Rev.)</button>
+              </div>
+
+              <form id="tracker-form">
+                <input type="hidden" id="input-type" value="sabaq" />
+                <input type="hidden" id="input-ayah" value="Ayahs 1 - 12" />
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="input-date">Date</label>
+                    <input type="date" id="input-date" class="form-input" required value="2026-10-25" />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-juz">Juz (1 - 30)</label>
+                    <select id="input-juz" class="form-select"></select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                    <label class="form-label" for="input-surah" style="margin-bottom: 0;">Surah</label>
+                    <label style="font-size: 0.7rem; color: var(--gold); cursor: pointer; display: flex; align-items: center; gap: 0.35rem;">
+                      <input type="checkbox" id="toggle-all-surahs" style="accent-color: var(--gold);" /> Show all 114 Surahs
+                    </label>
+                  </div>
+                  <select id="input-surah" class="form-select" required></select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="input-ayah-start">From Ayah</label>
+                    <select id="input-ayah-start" class="form-select"></select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-ayah-end">To Ayah</label>
+                    <select id="input-ayah-end" class="form-select"></select>
+                  </div>
+                </div>
+
+                <div id="selection-calc-summary" style="background-color: var(--bg-emerald-deep); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--gold-subtle); font-size: 0.75rem; color: var(--gold); margin-bottom: 1.15rem; display: flex; justify-content: space-between;">
+                  <span id="calc-ayahs-count">Total: 12 ayahs</span>
+                  <span id="calc-pages-est">~1.2 Madinah Pages</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="input-time">Time Spent (Minutes)</label>
+                    <input type="number" id="input-time" class="form-input" min="5" max="360" step="5" value="45" />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="input-quality">Recitation Quality</label>
+                    <select id="input-quality" class="form-select">
+                      <option value="mumtaz">Mumtaz (Flawless)</option>
+                      <option value="jayyid_jiddan">Jayyid Jiddan (Very Good)</option>
+                      <option value="jayyid">Jayyid (Good)</option>
+                      <option value="needs_revision">Needs Revision</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="input-notes">Teacher Notes &amp; Reflections (Optional)</label>
+                  <textarea id="input-notes" class="form-textarea" rows="2" placeholder="Teacher feedback or verses that need extra review..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem;">
+                  Save Progress
+                </button>
+              </form>
+
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--sage); margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--gold-subtle);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Private &amp; Offline: Saved in your browser&apos;s localStorage. No external database.</span>
+              </div>
+            </div>
+
+            <!-- Right: Mini Calendar & Live Progress Summary -->
+            <div>
+              
+              <!-- Mini Calendar Widget -->
+              <div class="calendar-widget">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                  <h3 id="cal-month-title" style="font-size: 1.15rem; color: var(--ivory);">October 2026</h3>
+                  <div style="display: flex; gap: 0.25rem;">
+                    <button id="cal-prev-btn" class="search-btn" style="width: 32px; height: 32px;" title="Previous Month">&larr;</button>
+                    <button id="cal-next-btn" class="search-btn" style="width: 32px; height: 32px;" title="Next Month">&rarr;</button>
+                  </div>
+                </div>
+
+                <div class="cal-grid" style="margin-bottom: 0.5rem;">
+                  <div class="cal-header">M</div>
+                  <div class="cal-header">T</div>
+                  <div class="cal-header">W</div>
+                  <div class="cal-header">T</div>
+                  <div class="cal-header">F</div>
+                  <div class="cal-header">S</div>
+                  <div class="cal-header">S</div>
+                </div>
+
+                <div id="cal-grid-days" class="cal-grid"></div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--sage); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(200, 160, 82, 0.2);">
+                  <div style="display: flex; align-items: center; gap: 0.4rem;">
+                    <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: var(--gold);"></span>
+                    <span>Logged Session</span>
+                  </div>
+                  <span id="cal-active-days-count">3 active days</span>
+                </div>
+              </div>
+
+              <!-- Progress Summary Card -->
+              <div class="progress-card">
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <div>
+                    <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage); font-weight: 700;">Overall Progress</div>
+                    <h3 style="font-size: 1.35rem; margin-top: 0.2rem;">Your Milestone</h3>
+                  </div>
+                  <div id="stat-progress-percent" style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--gold);">
+                    8%
+                  </div>
+                </div>
+
+                <div class="progress-track">
+                  <div id="stat-progress-bar" class="progress-bar" style="width: 8%;"></div>
+                </div>
+
+                <div id="stat-paras-remaining" style="font-size: 0.78rem; color: var(--sage); margin-bottom: 1.25rem;">
+                  2.5 Paras memorized · 27.5 Paras remaining
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center;">
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.75rem 0.5rem; border-radius: var(--radius-sm);">
+                    <div id="stat-sabaq-count" style="font-weight: 700; font-size: 1.15rem; color: var(--ivory);">1</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage);">Sabaq</div>
+                  </div>
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.75rem 0.5rem; border-radius: var(--radius-sm);">
+                    <div id="stat-revisions-count" style="font-weight: 700; font-size: 1.15rem; color: var(--ivory);">2</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage);">Revisions</div>
+                  </div>
+                  <div style="background-color: var(--bg-emerald-deep); padding: 0.75rem 0.5rem; border-radius: var(--radius-sm);">
+                    <div id="stat-total-hours" style="font-weight: 700; font-size: 1.15rem; color: var(--ivory);">2.2h</div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--sage);">Study Time</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Saved Records History Table -->
+          <div class="tracker-table-wrap">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.35rem;">Logged Hifz Sessions</h3>
+                <p style="font-size: 0.82rem; color: var(--sage);">History of your recent daily recitations and teacher audits.</p>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem;">
+                <button id="tracker-export-btn" class="btn btn-ghost btn-sm" title="Export as JSON backup">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  <span>Export JSON</span>
+                </button>
+
+                <button id="tracker-clear-btn" class="btn btn-ghost btn-sm" style="color: #ff7b72; border-color: rgba(255, 123, 114, 0.3);" title="Clear all local logs">
+                  <span>Clear Records</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="records-empty-state" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--sage);">
+              No sessions recorded yet. Use the form above to log today&apos;s Sabaq!
+            </div>
+
+            <table class="records-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Portion / Surah</th>
+                  <th>Time</th>
+                  <th>Quality</th>
+                  <th>Notes</th>
+                  <th style="text-align: right;">Delete</th>
+                </tr>
+              </thead>
+              <tbody id="records-tbody"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Clear Records Confirmation Modal -->
+    <div id="clear-confirm-modal" class="modal-backdrop">
+      <div class="modal-content" style="max-width: 440px; text-align: center;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(255, 123, 114, 0.15); color: #ff7b72; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+        </div>
+        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Clear All Saved Records?</h3>
+        <p style="font-size: 0.85rem; color: var(--sage); line-height: 1.6; margin-bottom: 1.5rem;">
+          This will permanently delete all your logged Hifz sessions from this browser. You can export a JSON backup first.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 0.75rem;">
+          <button id="cancel-clear-action" class="btn btn-ghost btn-sm">Cancel</button>
+          <button id="confirm-clear-action" class="btn btn-gold btn-sm" style="background-color: #d1242f; color: #fff;">Yes, Clear All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="brand-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18" />
+                  <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+                </svg>
+              </div>
+              <span class="brand-title">Hifz In Progress</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--sage); max-width: 320px; line-height: 1.6;">
+              Documenting the sacred journey of Qur&apos;an memorization from Day 1 to completion.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem;">Navigation</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--sage);">
+              <a href="index.html">Home</a>
+              <a href="journey.html">My Journey</a>
+              <a href="hifz-guide.html">Hifz Guide</a>
+              <a href="hifz-planner.html">Hifz Planner</a>
+              <a href="tracker.html" style="color: var(--gold);">Daily Tracker</a>
+              <a href="resources.html">Resources</a>
+              <a href="about.html">About</a>
+            </div>
+          </div>
+
+          <div class="footer-ayah-card">
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.5rem;">Ayah of Reflection</h4>
+            <div class="font-arabic" style="font-size: 1.35rem; color: var(--ivory); text-align: right; line-height: 1.8;" dir="rtl">
+              فَمَن تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+            </div>
+            <p style="font-size: 0.78rem; font-style: italic; color: rgba(243, 235, 221, 0.85); margin-top: 0.5rem;">
+              &ldquo;And whoever follows My guidance, there will be no fear concerning them, nor will they grieve.&rdquo;
+            </p>
+            <div style="font-size: 0.68rem; color: var(--sage); text-transform: uppercase; margin-top: 0.25rem;">
+              Surah Al-Baqarah (2:38)
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Hifz In Progress. All rights reserved.</div>
+          <div><a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Official Instagram: @hifzinprogress</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-content">
+        <button id="search-close-btn" class="modal-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Search Hifz In Progress</h3>
+        <input type="text" id="search-input" class="form-input" placeholder="Search guides, planner, routines..." style="padding: 0.85rem 1rem; margin-bottom: 1.25rem;" />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="quran-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

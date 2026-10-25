@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-dark: #031C17;
+    --color-emerald-deep: #062D24;
+    --color-emerald-card: #073B30;
+    --color-emerald-border: rgba(200, 160, 82, 0.22);
+    --color-gold: #C8A052;
+    --color-gold-hover: #D8B062;
+    --color-gold-muted: rgba(200, 160, 82, 0.4);
+    --color-ivory: #F3EBDD;
+    --color-sage: #8EA393;
+  }
+
+  body {
+    background-color: #031C17;
+    color: #F3EBDD;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+/* Subtle gold hairline borders matching design reference */
+.border-gold-subtle {
+  border-color: rgba(200, 160, 82, 0.22);
+}
+
+.border-gold-hover:hover {
+  border-color: rgba(200, 160, 82, 0.55);
+}
+
+/* Islamic Arch SVG mask or motif utilities */
+.islamic-arch {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #031C17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0b3d32;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A052;
+}

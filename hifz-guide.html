@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hifz Guide | Hifz In Progress</title>
+    <meta name="description" content="Comprehensive educational guides for Quran memorization: Nazrah, Tajweed preparation, Sabaq, Sabqi, Manzil, and qualified teacher advisories." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8A052' stroke-width='2'%3E%3Cpath d='M12 3v18M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-link" aria-label="Hifz In Progress Home">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3v18" />
+              <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+            </svg>
+          </div>
+          <span class="brand-title">Hifz In Progress</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="journey.html" class="nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="nav-link active">Hifz Guide</a>
+          <a href="hifz-planner.html" class="nav-link">Hifz Planner</a>
+          <a href="tracker.html" class="nav-link">Daily Tracker</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="search-toggle-btn" class="search-btn" aria-label="Search" title="Search">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+          <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">Follow Journey</a>
+          <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <div class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="journey.html" class="mobile-nav-link">My Journey</a>
+          <a href="hifz-guide.html" class="mobile-nav-link active">Hifz Guide</a>
+          <a href="hifz-planner.html" class="mobile-nav-link">Hifz Planner</a>
+          <a href="tracker.html" class="mobile-nav-link">Daily Tracker</a>
+          <a href="resources.html" class="mobile-nav-link">Resources</a>
+          <a href="about.html" class="mobile-nav-link">About</a>
+        </div>
+        <a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; text-align: center;">Follow on Instagram</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- GUIDE HERO SPLIT -->
+      <section class="section section-bg-emerald" style="padding-top: 4rem;">
+        <div class="container">
+          <div class="grid-2">
+            <div>
+              <div class="kicker">Hifz Curriculum &amp; Guidance</div>
+              <h1 style="font-size: 2.75rem; margin-bottom: 1.25rem;">
+                The Complete <br />
+                <span class="text-gold">Hifz Learning Center</span>
+              </h1>
+              <p style="font-size: 1.05rem; color: rgba(243, 235, 221, 0.85); font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem;">
+                Time-tested methodology from traditional Qur&apos;an institutions. Clear, practical advice on pronunciation, 
+                memorization rhythms, and lifelong retention.
+              </p>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="#tajweed" class="btn btn-gold btn-sm">Teacher Advisory</a>
+                <a href="#methodology" class="btn btn-ghost btn-sm">Sabaq &amp; Manzil</a>
+                <a href="#routine" class="btn btn-ghost btn-sm">Daily Schedule</a>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+              <div style="border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--gold-subtle); max-width: 400px; box-shadow: var(--shadow-lg);">
+                <img src="assets/images/quran-rehal.png" alt="Holy Quran on carved wooden rehal illuminated by lantern light" width="400" height="280" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANDATORY TEACHER NOTICE BANNER -->
+      <div class="container" style="margin-top: 2.5rem;">
+        <div style="background-color: var(--bg-card); border: 2px solid var(--gold); border-radius: var(--radius-lg); padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 1.25rem;">
+          <div style="color: var(--gold); flex-shrink: 0; margin-top: 2px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; color: var(--ivory); margin-bottom: 0.35rem;">
+              Critical Advisory: Always Recite to a Qualified Quran Teacher
+            </h3>
+            <p style="font-size: 0.88rem; color: rgba(243, 235, 221, 0.85); line-height: 1.6;">
+              Recitation correction requires a living teacher listening to your lips, tongue placement, and breath. 
+              Audio recordings and self-study alone cannot detect subtle articulation slips. 
+              <strong>Always recite tomorrow&apos;s new lesson to a certified Sheikh before memorizing it independently.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC CARDS GRID -->
+      <section class="section section-bg-dark">
+        <div class="container">
+          <div class="grid-3" style="margin-bottom: 4rem;">
+            
+            <a href="#start" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg></div>
+              <h3 style="font-size: 1.15rem;">1. How to Start Hifz</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">Pure intention, standard Mus&apos;haf edition, and setting daily line goals.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+            <a href="#tajweed" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+              <h3 style="font-size: 1.15rem;">2. Nazrah &amp; Tajweed</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">Correcting Makharij and rules before committing verses to memory.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+            <a href="#methodology" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></div>
+              <h3 style="font-size: 1.15rem;">3. Sabaq, Sabqi &amp; Manzil</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">The classic 3-tier revision system that cements verses like rock.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+            <a href="#routine" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+              <h3 style="font-size: 1.15rem;">4. Daily Routine</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">Structuring memorization around Fajr, Asr, and Isha prayer slots.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+            <a href="#mistakes" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></div>
+              <h3 style="font-size: 1.15rem;">5. Common Mistakes</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">The 5 fatal traps that cause aspiring Huffaz to lose momentum.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+            <a href="#duas" class="card">
+              <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg></div>
+              <h3 style="font-size: 1.15rem;">6. Duas &amp; Motivation</h3>
+              <p style="font-size: 0.82rem; color: var(--sage); margin-top: 0.35rem;">Authentic Quranic and prophetic prayers for memory and perseverance.</p>
+              <span style="color: var(--gold); font-size: 0.78rem; font-weight: 600; margin-top: 1rem;">Jump to section &darr;</span>
+            </a>
+
+          </div>
+
+          <!-- DETAILED ARTICLES -->
+          <div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
+            
+            <!-- Article 1: How to Start -->
+            <article id="start" style="background-color: var(--bg-emerald-deep); border: 1px solid var(--gold-subtle); border-radius: var(--radius-xl); padding: 2.5rem;">
+              <span class="badge" style="margin-bottom: 0.5rem;">Section 1</span>
+              <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">How to Start Your Hifz Journey</h2>
+              <div style="font-size: 0.95rem; color: rgba(243, 235, 221, 0.9); line-height: 1.75; display: flex; flex-direction: column; gap: 1rem;">
+                <p>
+                  <strong>1. Sincerity of Intention (Ikhlas):</strong> The Prophet ﷺ taught that actions are judged by intentions. 
+                  Do not memorize for fame, social compliments, or certificates. Settle in your heart that this Quran is your personal companionship with Allah.
+                </p>
+                <p>
+                  <strong>2. Use ONE Standard 15-Line Mus&apos;haf:</strong> The brain relies on visual spatial memory. You will remember the physical placement of an ayah—whether it is at the top right, center, or bottom of the page. If you switch between different phone apps and fonts, your visual memory is scrambled.
+                </p>
+                <p>
+                  <strong>3. Feasible Daily Targets:</strong> Do not start with 2 pages a day. Start with 5 to 7 lines. Consistency is what pleases Allah most, even if it is a modest amount.
+                </p>
+              </div>
+            </article>
+
+            <!-- Article 2: Nazrah & Tajweed -->
+            <article id="tajweed" style="background-color: var(--bg-emerald-deep); border: 1px solid var(--gold-subtle); border-radius: var(--radius-xl); padding: 2.5rem;">
+              <span class="badge badge-sage" style="margin-bottom: 0.5rem;">Section 2</span>
+              <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">Nazrah &amp; Tajweed Preparation</h2>
+              <div style="font-size: 0.95rem; color: rgba(243, 235, 221, 0.9); line-height: 1.75; display: flex; flex-direction: column; gap: 1rem;">
+                <p>
+                  When you memorize an ayah with a Tajweed error, you recite that mistake 50 to 100 times. It becomes cemented into permanent muscle memory, which takes weeks to unlearn.
+                </p>
+                <p>
+                  <strong>Master these essentials first:</strong>
+                </p>
+                <ul style="padding-left: 1.5rem; color: var(--sage);">
+                  <li>Makharij al-Huroof: Throat letters (Haa, 'Ayn, Ghayn, Kha) and emphatic letters (Sad, Dhad, Ta, Zha, Qaf).</li>
+                  <li>Noon Sakinah &amp; Tanween: Clear pronunciation (Izhar), merging (Idgham), changing (Iqlab), and hiding (Ikhfa).</li>
+                  <li>Madd rules: Differentiating natural 2-count Madd from mandatory 4 to 6 count Madd.</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Article 3: Sabaq, Sabqi, Manzil -->
+            <article id="methodology" style="background-color: var(--bg-emerald-deep); border: 1px solid var(--gold-subtle); border-radius: var(--radius-xl); padding: 2.5rem;">
+              <span class="badge" style="margin-bottom: 0.5rem;">Section 3</span>
+              <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">The 3-Tier System: Sabaq, Sabqi &amp; Manzil</h2>
+              <div style="font-size: 0.95rem; color: rgba(243, 235, 221, 0.9); line-height: 1.75; display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="padding: 1rem; background-color: var(--bg-card); border-radius: var(--radius-md);">
+                  <strong style="color: var(--gold);">Tier 1: Sabaq (The New Lesson)</strong>
+                  <p style="color: var(--sage); font-size: 0.88rem; margin-top: 0.25rem;">
+                    The newly assigned portion (1/2 to 1 page). Memorize fresh after Fajr. 10 times looking at the page, then 10 times from memory without looking.
+                  </p>
+                </div>
+
+                <div style="padding: 1rem; background-color: var(--bg-card); border-radius: var(--radius-md);">
+                  <strong style="color: var(--gold);">Tier 2: Sabqi / Dhor (Recent Revision)</strong>
+                  <p style="color: var(--sage); font-size: 0.88rem; margin-top: 0.25rem;">
+                    The last 1 to 2 Juz you recently completed. Because it is new, it is the most fragile. Recite 1/4 to 1/2 Juz of Sabqi daily before moving forward.
+                  </p>
+                </div>
+
+                <div style="padding: 1rem; background-color: var(--bg-card); border-radius: var(--radius-md);">
+                  <strong style="color: var(--gold);">Tier 3: Manzil / Muraja&apos;ah (Old Revision)</strong>
+                  <p style="color: var(--sage); font-size: 0.88rem; margin-top: 0.25rem;">
+                    All previous memorized portions. Divide your total memorized Quran into a 7-day or 10-day cycle so every single ayah is recited at least 3 times a month.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 4: Common Mistakes -->
+            <article id="mistakes" style="background-color: var(--bg-emerald-deep); border: 1px solid var(--gold-subtle); border-radius: var(--radius-xl); padding: 2.5rem;">
+              <span class="badge badge-sage" style="margin-bottom: 0.5rem;">Section 4</span>
+              <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">Common Mistakes to Avoid</h2>
+              <ul style="font-size: 0.92rem; color: rgba(243, 235, 221, 0.9); line-height: 1.8; padding-left: 1.5rem;">
+                <li><strong>Mistake 1: Speed over Retention.</strong> Rushing to say you finished a Juz while the previous pages have vanished. A Hafiz is known by what they can recite smoothly without opening the book.</li>
+                <li><strong>Mistake 2: Neglecting sleep.</strong> Memory consolidation occurs during deep sleep. Staying up all night memorizing destroys long-term retention.</li>
+                <li><strong>Mistake 3: Studying with phone alerts on.</strong> A single text message interrupts deep mental encoding and sets your cognitive focus back by 15 minutes.</li>
+              </ul>
+            </article>
+
+            <!-- Article 5: Duas -->
+            <article id="duas" style="background-color: var(--bg-card); border: 1px solid var(--gold); border-radius: var(--radius-xl); padding: 2.5rem;">
+              <span class="badge" style="margin-bottom: 0.5rem;">Section 5</span>
+              <h2 style="font-size: 1.85rem; margin-bottom: 1rem;">Authentic Duas for Steadfastness</h2>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <div class="font-arabic" style="font-size: 1.35rem; color: var(--gold); text-align: right;" dir="rtl">
+                  رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي يَفْقَهُوا قَوْلِي
+                </div>
+                <div style="font-size: 0.85rem; color: var(--ivory); font-style: italic; margin-top: 0.4rem;">
+                  &ldquo;My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue that they may understand my speech.&rdquo;
+                </div>
+                <div style="font-size: 0.72rem; color: var(--sage); text-transform: uppercase; margin-top: 0.2rem;">
+                  Surah Taha (20:25-28)
+                </div>
+              </div>
+
+              <div style="padding-top: 1.5rem; border-top: 1px solid var(--gold-subtle);">
+                <div class="font-arabic" style="font-size: 1.35rem; color: var(--gold); text-align: right;" dir="rtl">
+                  اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا
+                </div>
+                <div style="font-size: 0.85rem; color: var(--ivory); font-style: italic; margin-top: 0.4rem;">
+                  &ldquo;O Allah, I ask You for beneficial knowledge, goodly provision, and acceptable deeds.&rdquo;
+                </div>
+                <div style="font-size: 0.72rem; color: var(--sage); text-transform: uppercase; margin-top: 0.2rem;">
+                  Sunan Ibn Majah (925)
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="brand-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18" />
+                  <path d="M5 6.5C7.5 5 10 5.5 12 7c2-1.5 4.5-2 7-.5v12.5c-2.5-1.5-5-1-7 .5-2-1.5-4.5-2-7-.5V6.5z" />
+                </svg>
+              </div>
+              <span class="brand-title">Hifz In Progress</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--sage); max-width: 320px; line-height: 1.6;">
+              Documenting the sacred journey of Qur&apos;an memorization from Day 1 to completion.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem;">Navigation</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--sage);">
+              <a href="index.html">Home</a>
+              <a href="journey.html">My Journey</a>
+              <a href="hifz-guide.html" style="color: var(--gold);">Hifz Guide</a>
+              <a href="hifz-planner.html">Hifz Planner</a>
+              <a href="tracker.html">Daily Tracker</a>
+              <a href="resources.html">Resources</a>
+              <a href="about.html">About</a>
+            </div>
+          </div>
+
+          <div class="footer-ayah-card">
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.5rem;">Ayah of Reflection</h4>
+            <div class="font-arabic" style="font-size: 1.35rem; color: var(--ivory); text-align: right; line-height: 1.8;" dir="rtl">
+              فَمَن تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+            </div>
+            <p style="font-size: 0.78rem; font-style: italic; color: rgba(243, 235, 221, 0.85); margin-top: 0.5rem;">
+              &ldquo;And whoever follows My guidance, there will be no fear concerning them, nor will they grieve.&rdquo;
+            </p>
+            <div style="font-size: 0.68rem; color: var(--sage); text-transform: uppercase; margin-top: 0.25rem;">
+              Surah Al-Baqarah (2:38)
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Hifz In Progress. All rights reserved.</div>
+          <div><a href="https://www.instagram.com/hifzinprogress?rpxt=dG0ybnVlNmg1OGx1" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">Official Instagram: @hifzinprogress</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-content">
+        <button id="search-close-btn" class="modal-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Search Hifz In Progress</h3>
+        <input type="text" id="search-input" class="form-input" placeholder="Search guides, videos, routines..." style="padding: 0.85rem 1rem; margin-bottom: 1.25rem;" />
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
